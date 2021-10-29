@@ -1,0 +1,83 @@
+﻿.header-sticky {
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 30;
+}
+
+.sidebar-sticky {
+    position: sticky;
+    top: 5;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.scroll-up {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 0.5rem;
+    z-index: 9999;
+    background: #3d68c1;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 1.3rem;
+    opacity: 0;
+    visibility: hidden;
+    padding: .8rem 1.2rem;
+    height: 50px;
+    width: 55px;
+    overflow: hidden;
+    box-shadow: rgb(33 35 58 / 20%) 0 14px 80px;
+    transition: all .4s;
+}
+
+.scroll-up:focus {
+    box-shadow: rgba(34,35,58,.2) 0 14px 80px
+}
+
+.scroll-up.show {
+    opacity: 1;
+    visibility: visible
+}
+
+.scroll-up i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .3s
+}
+
+.scroll-up i.two {
+    top: 150%
+}
+
+.scroll-up:hover {
+    color: #fff;
+    background: #de9e53
+}
+
+.scroll-up:hover .one {
+    top: -150%
+}
+
+.scroll-up:hover .two {
+    top: 50%
+}
+
+.img-flags {
+    margin-right: .6rem;
+    width: 24px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,.05),-2px 0 5px 1px rgba(0,0,0,.05)
+}
+
+footer {
+    background: #3b5998;
+    color: #fff;
+    position: static;
+}
+
+    

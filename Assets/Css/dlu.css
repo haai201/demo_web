@@ -1,0 +1,59 @@
+﻿/*Ma mau cho lauyout 7a1214 */
+.stylecolor {
+    background-color: #3b5998 !important;
+}
+
+.accordion-body:not(.show) {
+}
+
+.bgtitle {
+    border-radius: 3px;
+    /*background-color: #609810;*/
+    background-color: #0072bc;
+    color: #FFF;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.menuhome {
+    background-color: #3b5998;
+    /* background-color:#218500; 218500*/
+}
+
+.page-item > a {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.modal-xl {
+    width: 95% !important;
+    max-width: 95% !important;
+}
+
+
+@media (max-width: 992px) {
+    .modal-xl {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+.box {
+    height: 20px;
+    width: 20px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    clear: both;
+}
+
+@media (max-width: 767px){
+    .w-sm-100{
+        width:100%;
+    }
+}

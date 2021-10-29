@@ -1,0 +1,96 @@
+:root {
+    --margin-y: 180px;
+    --data-y: 1; 
+}
+.hortree-wrapper *,
+.hortree-wrapper *:before,
+.hortree-wrapper *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.hortree-wrapper {
+    position: relative;
+    font-family: sans-serif, Verdana, Arial;
+    font-size: 0.9em;
+}
+
+.hortree-branch {
+    position: relative;
+}
+
+.hortree-branch:first-child {
+    margin-left: 0;
+}
+
+.hortree-entry {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+
+.hortree-label {
+    display: block;
+    width: 150px;
+    padding: 7px 5px;
+    line-height: 15px;
+    text-align: center;
+    border: 2px solid #4b86b7;
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    z-index: 10;
+    margin-left: calc(var(--margin-y) * var(--data-y) - var(--margin-y));
+    color: #fff;
+}
+
+.hortree-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.hortree-tooltip .hortree-tooltip-text {
+    visibility: hidden;
+    background-color: #484848;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 200ms;
+}
+
+.hortree-tooltip .hortree-tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border: 5px solid transparent;
+    border-top-color: #484848;
+}
+
+.hortree-tooltip:hover .hortree-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+.status-1 {
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+}
+.status-2 {
+    background-color: #17a2b8;
+    border: 1px solid #17a2b8;
+}
+.status-3 {
+    background-color: #808080;
+    border: 1px solid #808080;
+}

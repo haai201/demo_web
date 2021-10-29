@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://icons.iconarchive.com/icons/graphicloads/100-flat/16/student-icon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="ThemLHP.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="https://icons.iconarchive.com/icons/graphicloads/100-flat/16/student-icon.png" type="image/x-icon">
+    <!-- thư viện css -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css" type="text/css" />
+    <!-- thư viện css thông báo toast -->
+    <!--<link rel="stylesheet" href="Assets/Css/FontAwesome/css/all.min.css" type="text/css" />  thư viện css icon FontAwesome -->
+    <!--<link rel="stylesheet" href="Assets/Css/FontAwesome/css/fontawesome.min.css" type="text/css" /> thư viện css icon FontAwesome -->
+    <link rel="stylesheet" href="Assets/Css/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" />
+    <!-- thư viện css icon FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" type="text/css" />
+    <!-- thư viện css datatable -->
+    <link rel="stylesheet" href="Assets/Css/BS4.5.3/css/bootstrap.min.css" type="text/css">
+    <!-- thư viện css bootstrap v4.5.3 -->
+    <link href="Assets/Css/BS4-datetimepicker/sass/bootstrap-datetimepicker-build.css" rel="stylesheet" />
+    <!-- thư viện css datetimepicker -->
+    <link rel="stylesheet" href="Assets/Css/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- thư viện css select2 -->
+    <link rel="stylesheet" href="Assets/Css/style.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/site.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/menu.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/dlu.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/spin-loading.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/layout.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/form.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/slider.css" type="text/css">
+    <!-- Our Custom CSS menu slider popup -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css" type="text/css">
+    <link rel="stylesheet" href="SuaLHP.css">
+    <title>Sửa lớp học phần</title>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <!-- Nút nhấn lăn chuột lên-->
+    <div id="scroll-up"></div>
+    <a class="btn scroll-up" href="#scroll-up">
+        <i class="fa fa-arrow-up one"></i>
+        <i class="fa fa-arrow-up two"></i>
+    </a>
+    <!-- spinLoading ẩn -->
+    <div class="loading" id="spinLoading" style="display:none">Loading&#8230;</div>
+    <!-- ảnh banner -->
+    <img src="Assets/banner2020.png" class="img" style="width:100%;">
+    <!-- menu header -->
+    <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark stylecolor py-0 mb-1" id="navbarMenu">
+
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="nav navbar-nav">
+                    <a class="nav-item nav-link" href="#"><i class="fa fa-home"></i> Trang chủ</a>
+
+                    <div class="dropdown">
+                        <a class="nav-item nav-link" href="#" role="button" id="dropdownTraCuuLich" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bars"></i> Menu
+                        </a>
+                        <div class="dropdown-menu stylecolor" aria-labelledby="dropdownTraCuuLich">
+                            <a class="dropdown-item" href="#">Chương trình đào tạo</a>
+                            <a class="dropdown-item" href="#">Điểm</a>
+                            <a class="dropdown-item" href="#">Tra cứu lịch</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a class="nav-item nav-link" href="#" role="button" id="dropdownTraCuuLich" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-calendar"></i> Tra cứu lịch
+                        </a>
+                        <div class="dropdown-menu stylecolor" aria-labelledby="dropdownTraCuuLich">
+                            <a class="dropdown-item" href="#">Lịch học</a>
+                            <a class="dropdown-item" href="#">Lịch công tác</a>
+                            <a class="dropdown-item" href="#">Lịch giảng dậy</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="nav-item nav-link" href="#" role="button" id="dropdownDiem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-star" aria-hidden="true"></i> Điểm
+                        </a>
+                        <div class="dropdown-menu stylecolor" aria-labelledby="dropdownDiem">
+                            <a class="dropdown-item" href="#">Tra cứu điểm</a>
+                        </div>
+                    </div>
+
+
+                    <div class="dropdown">
+                        <a class="nav-item nav-link" href="#" role="button" id="dropdownCTDT" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-book" aria-hidden="true"></i> Chương trình đào tạo
+                        </a>
+                        <div class="dropdown-menu stylecolor" aria-labelledby="dropdownCTDT">
+
+                            <a class="dropdown-item" href="#">Toàn trường</a>
+                            <a class="dropdown-item" href="#">Chuyên ngành chính</a>
+                            <a class="dropdown-item" href="#">Chuyên ngành hai</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav navbar-nav ml-auto dropdown">
+                    <a data-toggle="dropdown" href="" class="nav-item nav-link" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                        <span><i class="fa fa-user" aria-hidden="true"></i> Dương Văn Nhã</span>
+                    </a>
+                    <div class="dropdown-menu stylecolor" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+                        <a class="dropdown-item" href="#">Tài khoản</a>
+                        <a class="dropdown-item" href="#">Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+
+        <!-- Modal-->
+
+        <!-- Sửa lớp học phần -->
+        <div class="fullcard" id="card">
+            <div class="card text-center">
+                <div class="card-header">
+                    Sửa lớp học phần
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Thuộc học phần</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                           <option value="1" selected>Nhập môn hệ cơ sở dữ liệu - CSDL</option>
+                      </select>
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Tên lớp học phần</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <option value="1" selected>CSDL_D2020_1</option>
+                   </select>
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Giảng viên (1)</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                  <option value="1" selected>Ngô Thúy Ngân</option>
+             </select>
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Giảng viên (2)</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+              <option value="1" selected>Select</option>
+         </select>
+                    </div>
+
+                </div>
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Thời gian kết thúc nhập điểm</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option value="1" selected>02/10/2021</option>
+            </select>
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Mô tả</label>
+                    </div>
+                    <div class="select">
+                        <textarea class="form-control" placeholder="Ngôn ngữ" id="floatingTextarea2" style="height: 100px"></textarea>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Học kì</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option value="1" selected>1</option>
+                <option value="2" >2</option>
+            </select>
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Năm học</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option value="1" selected>2021 - 2022</option>
+            </select>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- chi tiết lớp học phần -->
+        <div class="fullcard" id="card">
+            <div class="card text-center">
+                <div class="card-header">
+                    Chi tiết lớp học phần
+                </div>
+            </div>
+            <div class="content">
+                <label for="mySelect1" style="font-weight: bold;font-size: 15px;margin-bottom: .75rem;">Thành phần điểm của lớp học phần</label>
+                <br>
+                <label for="mySelect1" style="font-weight: bold;">Chọn loại học phần</label>
+            </div>
+            <div class="content-form">
+                <div class="form-check" id="label-form">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="HPTC()" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                  Học phần tiêu chuẩn
+                </label>
+                    <br><br>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onclick="HPTH()">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                 Học phần thực hành
+                </label>
+                    <br><br>
+
+
+
+
+                </div>
+                <div class="form-check">
+
+                    <table class="table table-bordered" id="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">STT</th>
+                                <th class="text-center">Ký hiệu</th>
+                                <th class="text-center">Thành phần</th>
+                                <th class="text-center">Tỷ lệ (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>CC</td>
+                                <td>Chuyên cần</td>
+                                <td style="width: 30%;"> <input type="text" placeholder="10" style="width:50%;text-align: center;justify-self:center;display: block;margin: auto;"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>KT</td>
+                                <td>Kiểm tra </td>
+                                <td style="width: 30%;"> <input type="text" placeholder="30" style="width:50%;text-align: center;justify-self:center;display: block;margin: auto;"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>CK</td>
+                                <td>Thi/BTL</td>
+                                <td style="width: 30%;"> <input type="text" placeholder="60" style="width:50%;text-align: center;justify-self:center;display: block;margin: auto;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered" id="table2">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Chọn</th>
+                                <th class="text-center">STT</th>
+                                <th class="text-center">Ký hiệu</th>
+                                <th class="text-center">Thành phần</th>
+                                <th class="text-center">Tỷ lệ (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <input type="checkbox" value="" id="flexCheckDefault" style="height: 20px;"></td>
+                                <td>1</td>
+                                <td>KT1</td>
+                                <td>Kiểm tra 1</td>
+                                <td style="width: 30%;"> <input type="text" placeholder="20" style="width:50%;text-align: center;justify-self:center;display: block;margin: auto;"></td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" value="" id="flexCheckDefault" style="height: 20px;"></td>
+                                <td>2</td>
+                                <td>KT2</td>
+                                <td>Kiểm tra 2</td>
+                                <td style="width: 30%;"> <input type="text" placeholder="20" style="width:50%;text-align: center;justify-self:center;display: block;margin: auto;"></td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" value="" id="flexCheckDefault" style="height: 20px;"></td>
+                                <td>3</td>
+                                <td>KT3</td>
+                                <td>Kiểm tra 3</td>
+                                <td style="width: 30%;"> <input type="text" placeholder="20" style="width:50%;text-align: center;justify-self:center;display: block;margin: auto;"></td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" value="" id="flexCheckDefault" style="height: 20px;"></td>
+                                <td>4</td>
+                                <td>KT1</td>
+                                <td>Kiểm tra 4</td>
+                                <td style="width: 30%;"> <input type="text" placeholder="20" style="width:50%;text-align: center;justify-self:center;display: block;margin: auto;"></td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" value="" id="flexCheckDefault" style="height: 20px;"></td>
+                                <td>5</td>
+                                <td>KT5</td>
+                                <td>Kiểm tra 5</td>
+                                <td style="width: 30%;"> <input type="text" placeholder="20" style="width:50%;text-align: center;justify-self:center;display: block;margin: auto;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-m">Lưu thành phần điểm</button>
+                    <br><br><br>
+                </div>
+            </div>
+
+            <hr>
+            <!-- giai đoạn học -->
+            <div class="table-form">
+                <label for="mySelect1" style="font-weight: bold;font-size: 15px;margin-bottom: .75rem;">Danh sách giai đoạn học</label>
+                <table class="table table-bordered" id="HP">
+                    <thead id="maincontent">
+                        <tr>
+                            <th>STT</th>
+                            <th>Thời gian bắt đầu</th>
+                            <th>Thời gian kết thúc</th>
+                            <th>Thứ</th>
+                            <th>Tiết bắt đầu</th>
+                            <th>Tiết kết thúc</th>
+                            <th>Địa điểm</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="text-center">1</td>
+                            <td> <input type="text" value="24/10/2021" id="text-center"></td>
+                            <td><input type="text" value="24/10/2021" id="text-center"></td>
+                            <td><input type="text" value="6" id="text-center"></td>
+                            <td><input type="text" value="6" id="text-center"></td>
+                            <td><input type="text" value="8" id="text-center"></td>
+                            <td><input type="text" value="A3-210" id="text-center"></td>
+                            <td id="icon">
+                                <a href="#" data-toggle="modal" data-target="#myModal"><img src="Assets/icon/Delete.png" class="delete"></a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-form">
+                <label for="mySelect1" style="font-weight: bold;font-size: 15px;margin-bottom: .75rem;">Thêm giai đoạn học</label>
+            </div>
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Thời gian bắt đầu</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option value="1" selected>Select</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Thời gian kết thúc</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <option value="1" selected>Select</option>
+                     </select>
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Tiết bắt đầu</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option value="1" selected>Select</option>
+               </select>
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Tiết kết thúc</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option value="1" selected>Select</option>
+           </select>
+                    </div>
+
+                </div>
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Thứ</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option value="1" selected>Select</option>
+              </select>
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+                    <div class="card-text">
+                        <label for="mySelect1" style="font-weight: bold;">Địa điểm</label>
+                    </div>
+                    <div class="select">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option value="1" selected>Select</option>
+                  </select>
+                        </select>
+                    </div>
+
+                </div>
+                <button type="button" class="btn btn-success float-right">Lưu giai đoạn</button>
+                <br><br>
+            </div>
+        </div>
+        <div class="button ">
+            <button type="button " class="btn btn-success " style="float: none;margin-right: 0%; ">Thêm lớp học phần</button>
+        </div>
+    </div>
+    <div class="modal effect-scale " id="modal-confirm " aria-hidden="true ">
+        <div class="modal-dialog modal-dialog-centered " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h6 class="modal-title ">Xác nhận <i class="fa fa-question-circle " aria-hidden="true "></i></h6>
+                </div>
+                <div class="modal-body ">
+                    <i class="fa fa-question-circle " aria-hidden="true "></i>
+                    <p></p>
+                </div>
+                <div class="modal-footer text-right ">
+                    <button type="button " class="btn btn-success text-uppercase " data-dismiss="modal " id="btn-xacnhan ">Đồng ý</button>
+                    <button type="button " class="btn btn-secondary text-uppercase " data-dismiss="modal " aria-label="Close ">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal thông báo dùng chung -->
+    <div class="modal " id="modal-noti " aria-hidden="true ">
+        <div class="modal-dialog " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h6 class="modal-title "></h6>
+                </div>
+                <div class="modal-body ">
+                    <p></p>
+                </div>
+                <div class="modal-footer text-right ">
+                    <button type="button " class="btn btn-secondary text-uppercase " data-dismiss="modal " aria-label="Close ">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal loading dùng chung -->
+    <div class="modal " id="loadMe-modal ">
+        <div class="modal-dialog modal-sm modal-dialog-centered " role="document ">
+            <div class="modal-content " style="border-radius: 0px; box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.7); ">
+                <div class="modal-body text-center ">
+                    <div class="loader "></div>
+                    <div class="loader-txt ">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="px-3 ">
+        <div class="row mt-2 p-2 ">
+            <div class="col-sm-12 col-2 footer-text text-center ">
+
+                <img src="Assets/images/output-onlinepngtools.png " class="rounded-circle bg-white " alt="Logo Khoa " width="40% ">
+                <p>Copyright © 2020, Trường Đại Học Thủ đô Hà Nội</p>
+
+            </div>
+            <div class="col-sm-12 col-2 footer-text text-center ">
+                <p><i class="fa fa-facebook " aria-hidden="true "></i> Facebook</p>
+                <p><i class="fa fa-twitter " aria-hidden="true "></i> Twitter</p>
+                <p><i class="fa fa-instagram " aria-hidden="true "></i> Instagram</p>
+            </div>
+            <div class="col-sm-12 col-5 footer-text text-center ">
+                <p>Địa chỉ: 98 phố Dương Quảng Hàm, Quan Hoa, Cầu Giấy, Hà Nội.</p>
+                <p>Điện thoại: (+84) 24.3833.0708</p>
+                <p>FAX: (+84) 24.3833.5426</p>
+                <p>Email: daotao.hnmu.cntt@gmail.com</p>
+            </div>
+            <div class="col-sm-12 col-3 footer-text footer-send-mail ">
+                <label>Nhận phản hồi qua</label>
+                <br>
+                <div class="btn-group ">
+                    <input type="text " name="sendMail " placeholder="Email ">
+                    <button type="button " class="btn-primary ">Gửi</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js " integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js " integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js " integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/ " crossorigin="anonymous "></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js " integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ " crossorigin="anonymous "></script>
+    <script src="QLLHP.js "></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "></script>
+    <script src="SuaLHP.js "></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+</body>
+
+</html>

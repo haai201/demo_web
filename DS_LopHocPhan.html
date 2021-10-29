@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://icons.iconarchive.com/icons/graphicloads/100-flat/16/student-icon.png" type="image/x-icon">
+    <!-- thư viện css -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css" type="text/css" />
+    <!-- thư viện css thông báo toast -->
+    <!--<link rel="stylesheet" href="Assets/Css/FontAwesome/css/all.min.css" type="text/css" />  thư viện css icon FontAwesome -->
+    <!--<link rel="stylesheet" href="Assets/Css/FontAwesome/css/fontawesome.min.css" type="text/css" /> thư viện css icon FontAwesome -->
+    <link rel="stylesheet" href="Assets/Css/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" />
+    <!-- thư viện css icon FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" type="text/css" />
+    <!-- thư viện css datatable -->
+    <link rel="stylesheet" href="Assets/Css/BS4.5.3/css/bootstrap.min.css" type="text/css">
+    <!-- thư viện css bootstrap v4.5.3 -->
+    <link href="Assets/Css/BS4-datetimepicker/sass/bootstrap-datetimepicker-build.css" rel="stylesheet" />
+    <!-- thư viện css datetimepicker -->
+    <link rel="stylesheet" href="Assets/Css/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- thư viện css select2 -->
+    <link rel="stylesheet" href="Assets/Css/style.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/site.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/menu.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/dlu.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/spin-loading.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/layout.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/form.css" type="text/css" />
+    <link rel="stylesheet" href="Assets/Css/slider.css" type="text/css">
+    <!-- Our Custom CSS menu slider popup -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css" type="text/css">
+    <!-- Scrollbar Custom CSS menu slider popup -->
+    <title>Cổng thông tin sinh viên</title>
+
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <!-- Nút nhấn lăn chuột lên-->
+    <div id="scroll-up"></div>
+    <a class="btn scroll-up" href="#scroll-up">
+        <i class="fa fa-arrow-up one"></i>
+        <i class="fa fa-arrow-up two"></i>
+    </a>
+    <!-- spinLoading ẩn -->
+    <div class="loading" id="spinLoading" style="display:none">Loading&#8230;</div>
+    <!-- ảnh banner -->
+    <img src="Assets/banner2020.png" class="img" style="width:100%;">
+    <!-- menu header -->
+    <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark stylecolor py-0 mb-1" id="navbarMenu">
+
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="nav navbar-nav">
+                    <a class="nav-item nav-link" href="#"><i class="fa fa-home"></i> Trang chủ</a>
+
+                    <div class="dropdown">
+                        <a class="nav-item nav-link" href="#" role="button" id="dropdownTraCuuLich" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bars"></i> Menu
+                        </a>
+                        <div class="dropdown-menu stylecolor" aria-labelledby="dropdownTraCuuLich">
+                            <a class="dropdown-item" href="#">Chương trình đào tạo</a>
+                            <a class="dropdown-item" href="#">Điểm</a>
+                            <a class="dropdown-item" href="#">Tra cứu lịch</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a class="nav-item nav-link" href="#" role="button" id="dropdownTraCuuLich" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-calendar"></i> Tra cứu lịch
+                        </a>
+                        <div class="dropdown-menu stylecolor" aria-labelledby="dropdownTraCuuLich">
+                            <a class="dropdown-item" href="#">Lịch học</a>
+                            <a class="dropdown-item" href="#">Lịch công tác</a>
+                            <a class="dropdown-item" href="#">Lịch giảng dậy</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="nav-item nav-link" href="#" role="button" id="dropdownDiem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-star" aria-hidden="true"></i> Điểm
+                        </a>
+                        <div class="dropdown-menu stylecolor" aria-labelledby="dropdownDiem">
+                            <a class="dropdown-item" href="#">Tra cứu điểm</a>
+                        </div>
+                    </div>
+
+
+                    <div class="dropdown">
+                        <a class="nav-item nav-link" href="#" role="button" id="dropdownCTDT" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-book" aria-hidden="true"></i> Chương trình đào tạo
+                        </a>
+                        <div class="dropdown-menu stylecolor" aria-labelledby="dropdownCTDT">
+
+                            <a class="dropdown-item" href="#">Toàn trường</a>
+                            <a class="dropdown-item" href="#">Chuyên ngành chính</a>
+                            <a class="dropdown-item" href="#">Chuyên ngành hai</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav navbar-nav ml-auto dropdown">
+                    <a data-toggle="dropdown" href="" class="nav-item nav-link" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                        <span><i class="fa fa-user" aria-hidden="true"></i> Dương Văn Nhã</span>
+                    </a>
+                    <div class="dropdown-menu stylecolor" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+                        <a class="dropdown-item" href="#">Tài khoản</a>
+                        <a class="dropdown-item" href="#">Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- khu vực hiển thị chính -->
+    <div class="container-fluid">
+        <div class="row m-0">
+            <div class="panel panel-primary filterable w-100">
+                <div class="panel-heading">
+                    <div class="row">
+                        <ol id="breadcumb" class="breadcrumb col">
+                            <li><a href="/">Trang chủ</a> / Quản lý lớp học phần</li>
+                        </ol>
+                    </div>
+                    <div class="row w-100 m-0 align-items-center mb-2">
+                        <div class="col-md-3 col-sm-12 pb-sm-1 text-md-left text-sm-center text-center">
+                            Hiện
+                            <select id="size" onchange="">
+                                <option value="10" selected>10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                                <option value="250">250</option>
+                                <option value="500">500</option>
+                            </select> Bản ghi
+                        </div>
+                        <div class="col-md-9 col-sm-12 text-sm-center text-md-right p-0 text-center">
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#src"><i class="fa fa-filter" aria-hidden="true"></i> Bộ lọc nâng cao</button>
+                            <button type="button" class="btn btn-success" onclick=""><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm lớp học phần</button>
+                            <!-- <button type="button" class="btn btn-danger" onclick="showModalConfirm('DelLHP()','Xóa lóp học phần','Bạn có chắc chắn muốn xóa không ?')"><i class="fa fa-trash" aria-hidden="true"></i> Xóa dòng được chọn</button> -->
+                        </div>
+
+                    </div>
+                    <div class=" w-100 pb-1 collapse" id="src">
+                        <div class="w-100 mb-2 card">
+                            <div class="card-header search-card-header">
+                                <div class="row text-center">
+                                    <div class="col-md">
+                                        <label class="control-label">Bộ lọc nâng cao</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3 align-items-center">
+                                    <div class="col-md-1">
+                                        <label class="control-label">Sắp xếp theo</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="js-example-basic-single" id="sortBy" onchange="" style="width:100%">
+                                            <option value="TenLopHocPhan">Tên lớp học phần</option>
+                                            <option value="HocPhan">Học phần</option>
+                                            <option value="GiangVien">Giảng viên</option>
+                                            <option value="HocKy">Học kỳ</option>
+                                            <option value="NamHoc">Năm học</option>
+                                            <option value="MoTa">Mô tả</option>
+                                            <option value="HanKetThucNhapDiem">Hạn kết thúc nhập điểm</option>
+                                            <option value="CreateAt" selected>Ngày thêm</option>
+                                            <option value="UpdateAt">Ngày sửa</option>
+                                        </select>
+                                    </div>
+                                    <!-- <div class="col-md-1">
+                                        <button type="button" class="btn btn-primary" id="btnSortAlpha" onclick=""><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i></button>
+                                        <input type="hidden" id="SortType" value="" />
+                                    </div> -->
+                                    <div class="col-md text-right">
+                                        <button type="button" class="btn btn-warning" onclick=""><i class="fa fa-repeat" aria-hidden="true"></i> Đặt lại</button>
+                                        <button type="button" class="btn btn-info" onclick=""><i class="fa fa-search-plus" aria-hidden="true"></i> Tìm kiếm</button>
+                                        <button type="button" class="btn btn-primary" id="btnSortAlpha" onclick=""><i class="fas fa-sort-alpha-down" aria-hidden="true"></i></button>
+                                        <input type="hidden" id="SortType" value="" />
+                                    </div>
+                                </div>
+                                <div class="row mb-3 align-items-center">
+                                    <div class="col-md-1">
+                                        <label class="control-label">Tên lớp học phần</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" id="searchTenLHP" />
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="control-label">Thuộc học phần</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="js-example-basic-single" id="searchHocPhan" style="width:100%">
+                                            <option value="" selected>--- Chọn học phần ---</option>
+                                            <option value="1">Lập trình cơ bản</option>
+                                            <option value="2">Toán rời rạc</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="control-label">Giảng viên giảng dạy</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="js-example-basic-single" id="searchGiangVien" style="width:100%">
+                                            <option value="" selected>--- Chọn giảng viên ---</option>
+                                            <option value="1">Hà Đặng Cao Tùng</option>
+                                            <option value="2">Hoàng Thi Mai</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3 align-items-center ">
+                                    <div class="col-md-1">
+                                        <label class="control-label">Học kỳ</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="js-example-basic-single" id="searchHocKy" style="width:100%">
+                                            <option value="" selected>--- Chọn học kì ---</option>
+                                            <option value="1">học kỳ 1</option>
+                                            <option value="2">học kỳ 2</option>
+                                            <option value="3">học kỳ phụ</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="control-label">Năm học</label>
+                                    </div>
+                                    <div class="col-md-3 form-search">
+                                        <select class="js-example-basic-single" id="searchNamHoc" style="width:100%">
+                                            <option value="" selected>--- Chọn năm học ---</option>
+                                            <option value="2019">2019-2020</option>
+                                            <option value="2020">2020-2021</option>
+                                            <option value="2021">2021-2022</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="control-label">Mô tả</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" id="searchMoTa" />
+                                    </div>
+                                </div>
+
+                                <div class="row align-items-center">
+                                    <div class="col-md-1">
+                                        <label class="control-label">Hạn kết thúc nhập điểm từ</label>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control datepicker" id="searchHanKetThucNhapDiemTu" />
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="control-label">Hạn kết thúc nhập điểm đến</label>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control datepicker" id="searchHanKetThucNhapDiemDen" />
+                                    </div>
+                                    <div class="col-md-1" ">
+                                        <label class="control-label ">Ngày thêm từ</label>
+                                    </div>
+                                    <div class="col-md-1 ">
+                                        <input type="text " class="form-control datepicker " id="searchCreateAtTu " />
+                                    </div>
+                                    <div class="col-md-1 ">
+                                        <label class="control-label ">Ngày thêm dến</label>
+                                    </div>
+                                    <div class="col-md-1 ">
+                                        <input type="text " class="form-control datepicker " id="searchCreateAtDen " />
+                                    </div>
+                                    <div class="col-md-1 ">
+                                        <label class="control-label ">Ngày sửa từ</label>
+                                    </div>
+                                    <div class="col-md-1 ">
+                                        <input type="text " class="form-control datepicker " id="searchUpdateAtTu " />
+                                    </div>
+                                    <div class="col-md-1 ">
+                                        <label class="control-label ">Ngày sửa đến</label>
+                                    </div>
+                                    <div class="col-md-1 ">
+                                        <input type="text " class="form-control datepicker " id="searchUpdateAtDen " />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive " id="LHP-table ">
+                    <table id="mytable " class="table table-bordered table-striped ">
+                        <thead class="search-card-header ">
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên lớp học phần</th>
+                                <th>Thuộc học phần</th>
+                                <th>Giảng viên giảng dạy</th>
+                                <th>Học kỳ</th>
+                                <th>Năm học</th>
+                                <th>Mô tả</th>
+                                <th>Hạn kết thúc nhập điểm</th>
+                                <th>Ngày thêm</th>
+                                <th>Ngày sửa</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                                <tr>
+                                    <td class="text-center ">1</td>
+                                    <td><a href="/DaoTao/DetailLHP?id=217 " target="_blank ">30INF045_CNTTD2019</a></td>
+                                    <td>Lập trình mạng</td>
+                                    <td>Nguyễn Quốc Tuấn</td>
+                                    <td class="text-center ">1</td>
+                                    <td class="text-center ">2021-2022</td>
+                                    <td></td>
+                                    <td>31/12/2021</td>
+                                    <td>11/08/2021</td>
+                                    <td>15/08/2021</td>
+                                    <td>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Cập nhật "><img src="Assets/icon/Fix.png " class="min-width-max-content "></a>
+                                        </button>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Xóa "><img src="Assets/icon/Delete.png " class="min-width-max-content "></a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center ">2</td>
+                                    <td><a href="/DaoTao/DetailLHP?id=216 " target="_blank ">30INF023_CNTTD2019</a></td>
+                                    <td>Thực hành hệ điều hành mạng</td>
+                                    <td>Lê Chí Chung</td>
+                                    <td class="text-center ">1</td>
+                                    <td class="text-center ">2021-2022</td>
+                                    <td></td>
+                                    <td>26/12/2021</td>
+                                    <td>11/08/2021</td>
+                                    <td>11/08/2021</td>
+                                    <td>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Cập nhật "><img src="Assets/icon/Fix.png " class="min-width-max-content "></a>
+                                        </button>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Xóa "><img src="Assets/icon/Delete.png " class="min-width-max-content "></a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center ">3</td>
+                                    <td><a href="/DaoTao/DetailLHP?id=215 " target="_blank ">30INF029_CNTTD2019</a></td>
+                                    <td>Lập trình trên Windows</td>
+                                    <td>Trương Đức Phương</td>
+                                    <td class="text-center ">1</td>
+                                    <td class="text-center ">2021-2022</td>
+                                    <td></td>
+                                    <td>26/12/2021</td>
+                                    <td>11/08/2021</td>
+                                    <td>11/08/2021</td>
+                                    <td>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Cập nhật "><img src="Assets/icon/Fix.png " class="min-width-max-content "></a>
+                                        </button>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Xóa "><img src="Assets/icon/Delete.png " class="min-width-max-content "></a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center ">4</td>
+                                    <td><a href="/DaoTao/DetailLHP?id=212 " target="_blank ">30INF052_CNTTD2018B</a></td>
+                                    <td>Hệ điều hành Linux</td>
+                                    <td>Lê Chí Chung</td>
+                                    <td class="text-center ">1</td>
+                                    <td class="text-center ">2021-2022</td>
+                                    <td></td>
+                                    <td>18/12/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Cập nhật "><img src="Assets/icon/Fix.png " class="min-width-max-content "></a>
+                                        </button>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Xóa "><img src="Assets/icon/Delete.png " class="min-width-max-content "></a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center ">5</td>
+                                    <td><a href="/DaoTao/DetailLHP?id=211 " target="_blank ">30INF020_CNTTD2018B</a></td>
+                                    <td>Thiết kế và quản trị dự án CNTT</td>
+                                    <td>Nguyễn Minh Huy</td>
+                                    <td class="text-center ">1</td>
+                                    <td class="text-center ">2021-2022</td>
+                                    <td></td>
+                                    <td>18/12/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Cập nhật "><img src="Assets/icon/Fix.png " class="min-width-max-content "></a>
+                                        </button>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Xóa "><img src="Assets/icon/Delete.png " class="min-width-max-content "></a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center ">6</td>
+                                    <td><a href="/DaoTao/DetailLHP?id=210 " target="_blank ">30INF042_CNTTD2018B</a></td>
+                                    <td>Kỹ nghệ phần mềm</td>
+                                    <td>Nguyễn Minh Huy</td>
+                                    <td class="text-center ">1</td>
+                                    <td class="text-center ">2021-2022</td>
+                                    <td></td>
+                                    <td>18/12/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Cập nhật "><img src="Assets/icon/Fix.png " class="min-width-max-content "></a>
+                                        </button>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Xóa "><img src="Assets/icon/Delete.png " class="min-width-max-content "></a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center ">7</td>
+                                    <td><a href="/DaoTao/DetailLHP?id=209 " target="_blank ">30INF020_CNTTD2018A</a></td>
+                                    <td>Thiết kế và quản trị dự án CNTT</td>
+                                    <td>Nguyễn Minh Huy</td>
+                                    <td class="text-center ">1</td>
+                                    <td class="text-center ">2021-2022</td>
+                                    <td></td>
+                                    <td>18/12/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Cập nhật "><img src="Assets/icon/Fix.png " class="min-width-max-content "></a>
+                                        </button>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Xóa "><img src="Assets/icon/Delete.png " class="min-width-max-content "></a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center ">8</td>
+                                    <td><a href="/DaoTao/DetailLHP?id=208 " target="_blank ">30INF013_TUDD2020</a></td>
+                                    <td>Nhập môn hệ CSDL</td>
+                                    <td>Ngô Thúy Ngân</td>
+                                    <td class="text-center ">1</td>
+                                    <td class="text-center ">2021-2022</td>
+                                    <td></td>
+                                    <td>20/11/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Cập nhật "><img src="Assets/icon/Fix.png " class="min-width-max-content "></a>
+                                        </button>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Xóa "><img src="Assets/icon/Delete.png " class="min-width-max-content "></a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center ">9</td>
+                                    <td><a href="/DaoTao/DetailLHP?id=207 " target="_blank ">30INF004_TUDD2020</a></td>
+                                    <td>Giải tích số</td>
+                                    <td>Nguyễn Thị Như Huyền</td>
+                                    <td class="text-center ">1</td>
+                                    <td class="text-center ">2021-2022</td>
+                                    <td></td>
+                                    <td>18/12/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Cập nhật "><img src="Assets/icon/Fix.png " class="min-width-max-content "></a>
+                                        </button>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Xóa "><img src="Assets/icon/Delete.png " class="min-width-max-content "></a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center ">10</td>
+                                    <td><a href="/DaoTao/DetailLHP?id=206 " target="_blank ">20TRA906_TUDD2020</a></td>
+                                    <td>Toán xác suất thống kê</td>
+                                    <td>Nguyễn Thị Như Huyền</td>
+                                    <td class="text-center ">1</td>
+                                    <td class="text-center ">2021-2022</td>
+                                    <td></td>
+                                    <td>18/12/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>06/08/2021</td>
+                                    <td>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Cập nhật "><img src="Assets/icon/Fix.png " class="min-width-max-content "></a>
+                                        </button>
+                                        <button class="btn " type="button ">
+                                            <a href="# " data-placement="top " data-toggle="tooltip " title="Xóa "><img src="Assets/icon/Delete.png " class="min-width-max-content "></a>
+                                        </button>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+
+                    
+                </div>
+                <div class="pagination-container ">
+                    <ul class="pagination justify-content-center ">
+                        <li class="page-item active "><a>1</a></li>
+                        <li class="page-item "><a href=" ">2</a></li>
+                        <li class="page-item "><a href=" ">3</a></li>
+                        <li class="page-item "><a href=" ">4</a></li>
+                        <li class="page-item "><a href=" ">5</a></li>
+                        <li class="page-item "><a href=" ">6</a></li>
+                        <li class="page-item "><a href=" ">7</a></li>
+                        <li class="page-item "><a href=" ">8</a></li>
+                        <li class="page-item "><a href=" ">9</a></li>
+                        <li class="page-item "><a href=" ">10</a></li>
+                        <li class="page-item disabled PagedList-ellipses "><a>…</a></li>
+                        <li class="page-item PagedList-skipToNext ">
+                            <a href=" " rel="next ">
+                                <span class="fa fa-arrow-right " data-icon="ion-ios-arrow-forward " data-inline="false "></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal xác nhận dùng chung -->
+    <div class="modal effect-scale " id="modal-confirm " aria-hidden="true ">
+        <div class="modal-dialog modal-dialog-centered " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h6 class="modal-title ">Xác nhận <i class="fa fa-question-circle " aria-hidden="true "></i></h6>
+                </div>
+                <div class="modal-body ">
+                        <i class="fa fa-question-circle " aria-hidden="true "></i>
+                        <p></p>
+                    </div>
+                <div class="modal-footer text-right ">
+                    <button type="button " class="btn btn-success text-uppercase " data-dismiss="modal " id="btn-xacnhan ">Đồng ý</button>
+                    <button type="button " class="btn btn-secondary text-uppercase " data-dismiss="modal " aria-label="Close ">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal thông báo dùng chung -->
+    <div class="modal " id="modal-noti " aria-hidden="true ">
+        <div class="modal-dialog " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h6 class="modal-title "></h6>
+                </div>
+                <div class="modal-body ">
+                    <p></p>
+                </div>
+                <div class="modal-footer text-right ">
+                    <button type="button " class="btn btn-secondary text-uppercase " data-dismiss="modal " aria-label="Close ">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal loading dùng chung -->
+    <div class="modal " id="loadMe-modal ">
+        <div class="modal-dialog modal-sm modal-dialog-centered " role="document ">
+            <div class="modal-content " style="border-radius: 0px; box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.7); ">
+                <div class="modal-body text-center ">
+                    <div class="loader "></div>
+                    <div class="loader-txt ">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="px-3 ">
+        <div class="row mt-2 p-2 ">
+            <div class="col-sm-12 col-2 footer-text text-center ">
+
+                <img src="Assets/images/output-onlinepngtools.png " class="rounded-circle bg-white " alt="Logo Khoa " width="40% ">
+                <p>Copyright © 2020, Trường Đại Học Thủ đô Hà Nội</p>
+
+            </div>
+            <div class="col-sm-12 col-2 footer-text text-center ">
+                <p><i class="fa fa-facebook " aria-hidden="true "></i> Facebook</p>
+                <p><i class="fa fa-twitter " aria-hidden="true "></i> Twitter</p>
+                <p><i class="fa fa-instagram " aria-hidden="true "></i> Instagram</p>
+            </div>
+            <div class="col-sm-12 col-5 footer-text text-center ">
+                <p>Địa chỉ: 98 phố Dương Quảng Hàm, Quan Hoa, Cầu Giấy, Hà Nội.</p>
+                <p>Điện thoại:  (+84) 24.3833.0708</p>
+                <p>FAX:  (+84) 24.3833.5426</p>
+                <p>Email: daotao.hnmu.cntt@gmail.com</p>
+            </div>
+            <div class="col-sm-12 col-3 footer-text footer-send-mail ">
+                <label>Nhận phản hồi qua</label>
+                <br>
+                <div class="btn-group ">
+                    <input type="text " name="sendMail " placeholder="Email ">
+                    <button type="button " class="btn-primary ">Gửi</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- thư viện scripts -->
+    <script type="text/javascript " src="Assets/Scripts/jquery-3.4.1.min.js "></script>
+    <script type="text/javascript " src="Assets/Css/BS4.5.3/js/bootstrap.min.js "></script>
+    <script type="text/javascript " src="Assets/Css/select2/dist/js/select2.min.js "></script>
+    <script type="text/javascript " src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js "></script>
+    <script type="text/javascript " src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js "></script>
+    <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js "></script>
+    <script type="text/javascript " src="Assets/Scripts/jquery.unobtrusive-ajax.js "></script>
+    <script type="text/javascript " src="Assets/Css/PickDate/js/moment.js "></script>
+    <script type="text/javascript " src="Assets/Css/BS4-datetimepicker/js/bootstrap-datetimepicker.js "></script>
+    <!-- Popper.JS -->
+    <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js "></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js "></script>
+    <script type="text/javascript " src="Assets/Scripts/Config.js "></script>
+    <script type="text/javascript " src="Assets/Scripts/site.js "></script>
+    <script type="text/javascript " src="Assets/Scripts/HNMU/Shared/_Layout.js "></script>
+
+</body>
+</html>

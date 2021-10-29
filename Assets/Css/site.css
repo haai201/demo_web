@@ -1,0 +1,385 @@
+﻿/* Set width on the form input elements since they're 100% wide by default */
+
+* {
+    padding: 0px;
+}
+
+body {
+    font-size: 14px !important;
+    font-family: "Font Awesome 5 Free" !important;
+}
+
+
+/* styles for validation helpers */
+
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.NoiDungHoSo {
+    color: #000000;
+    font-family: Times New Roman, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.NoiDungHoSo2 {
+    color: #000000;
+    font-family: Times New Roman, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400);
+.loader {
+    position: relative;
+    text-align: center;
+    margin: 15px auto 35px auto;
+    z-index: 9999;
+    display: block;
+    width: 80px;
+    height: 80px;
+    border: 10px solid rgba(0, 0, 0, .3);
+    border-radius: 50%;
+    border-top-color: #000;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+
+/** MODAL STYLING **/
+
+.modal-content {
+    border-radius: 0px;
+    box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.7);
+}
+
+.modal-backdrop.show {
+    opacity: 0.75;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.divmain {}
+
+.control-label {
+    font-weight: 600;
+}
+
+.group-switch button {
+    background-color: transparent;
+    color: #031b4e;
+    border: 0;
+    outline: 0px transparent !important;
+}
+
+.group-switch button:focus {
+    outline: none
+}
+
+
+/* style cho nút đc active */
+
+.group-switch .active {
+    background: #ddeff9;
+    color: #11a0f8;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.modal-header {
+    background-color: #1B88C8;
+    color: #FFF;
+    border-radius: 0px;
+}
+
+.modal-header h4 {
+    margin: 3px !important;
+}
+
+.modal-body {
+    padding: 30px 10px !important;
+}
+
+.modal-content {
+    border-radius: 0px;
+}
+
+.title_topicdisplay {
+    color: #074C95;
+    text-align: justify;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.filterable {}
+
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+}
+
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
+}
+
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+}
+
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
+}
+
+.nav-switch {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    pointer-events: auto;
+}
+
+.nav-switch a {
+    padding: 10px;
+    min-width: 115px;
+    margin-left: 0px;
+    background: #e9ecef;
+    border-left: 0;
+    position: relative;
+    line-height: normal;
+    text-align: center;
+    /* padding-top: 10px; */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-switch a:hover {
+    text-decoration: none !important;
+}
+
+.nav-switch .active {
+    background-color: #3b5998 !important;
+    color: #fff !important;
+}
+
+.menuLHP {
+    list-style: none;
+    padding-left: 18px;
+}
+
+.menuLHP li {
+    cursor: pointer;
+    color: #0056b3;
+}
+
+.pre-next {
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+}
+
+.pre-next i {
+    font-size: 20px;
+}
+
+.pre-next>.arrow {
+    color: #0056b3;
+    cursor: pointer;
+}
+
+.pre-next input {
+    width: 50% !important;
+    height: 25px !important;
+    display: inline;
+    text-align: center;
+}
+
+.pre-next .right {
+    float: right;
+}
+
+.pre-next .left {
+    float: left;
+}
+
+.label-nam-hoc {
+    font-weight: 700;
+    display: inline;
+    font-size: 16px;
+}
+
+.fullwidth>div {
+    padding: 0;
+}
+
+table-quan-tri>thead>tr>th {
+    white-space: nowrap;
+}
+
+table-quan-tri>thead>tr>th>div {
+    display: flex;
+    align-items: center;
+}
+
+table-quan-tri>thead>tr>th>div>i {
+    margin-left: auto;
+}
+
+.page-item {
+    padding-right: 1px;
+    padding-left: 1px;
+}
+
+.page-item>a {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    text-decoration: none;
+}
+
+.inner-content {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.footer-text {
+    align-self: center;
+}
+
+.footer-send-mail input {
+    padding: 2%;
+    border-radius: 5px 0 0 5px;
+    border: white;
+    width: 75%;
+}
+
+.footer-send-mail button {
+    padding: 2%;
+    border-radius: 0 5px 5px 0;
+    border: white;
+}
